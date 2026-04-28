@@ -1,0 +1,67 @@
+---
+import { SITE_BASE, type Locale } from '../config/site';
+import { getStrings } from '../i18n/t';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = getStrings(locale);
+
+const privacyHref = `${SITE_BASE}/${locale}/privacy/`;
+const termsHref   = `${SITE_BASE}/${locale}/terms/`;
+const homeHref    = `${SITE_BASE}/${locale}/`;
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href={homeHref} class="wordmark" aria-label={t.site.name}>{t.site.name}</a>
+    <nav class="links" aria-label="Footer">
+      <a href={privacyHref}>{t.footer.privacy}</a>
+      <a href={termsHref}>{t.footer.terms}</a>
+      <LanguageSwitcher locale={locale} pathname={pathname} />
+    </nav>
+    <div class="copyright">{t.footer.copyright}</div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    margin-top: var(--space-3xl);
+    padding-block: var(--space-2xl);
+    color: var(--text-muted);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .wordmark {
+    font-family: var(--font-script);
+    font-size: 22px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .links {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: var(--font-caption);
+  }
+
+  .links a { color: var(--text-secondary); }
+  .links a:hover { color: var(--text-primary); }
+
+  .copyright {
+    font-size: var(--font-caption);
+  }
+</style>
