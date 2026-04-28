@@ -1,0 +1,51 @@
+---
+import type { Locale } from '../../config/site';
+import { getStrings } from '../../i18n/t';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+---
+
+<section class="biw" aria-labelledby="biw-headline">
+  <div class="container biw-inner">
+    <p class="eyebrow">{t.builtFor.eyebrow}</p>
+    <h2 id="biw-headline" class="headline">{t.builtFor.headline}</h2>
+    <p class="body">{t.builtFor.body}</p>
+  </div>
+</section>
+
+<style>
+  .biw { padding-block: var(--space-2xl); text-align: center; }
+
+  .biw-inner {
+    max-width: 780px;
+    display: grid;
+    gap: var(--space-md);
+    justify-items: center;
+  }
+
+  .eyebrow {
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin: 0;
+  }
+
+  .headline {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: var(--font-display-3);
+    line-height: 1.2;
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .body {
+    font-size: var(--font-headline);
+    color: var(--text-secondary);
+    max-width: 56ch;
+    margin: 0;
+  }
+</style>
