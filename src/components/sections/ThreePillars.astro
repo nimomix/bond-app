@@ -1,0 +1,65 @@
+---
+import { SITE_BASE, type Locale } from '../../config/site';
+import { getStrings } from '../../i18n/t';
+import PhoneFrame from '../PhoneFrame.astro';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+
+const screenshots = [
+  `${SITE_BASE}/screenshots/pillar-onboarding.png`,
+  `${SITE_BASE}/screenshots/pillar-private.png`,
+  `${SITE_BASE}/screenshots/pillar-sync.png`,
+];
+---
+
+<section class="pillars" aria-label="Features">
+  <div class="container">
+    <div class="grid">
+      {t.pillars.items.map((item, i) => (
+        <article class="pillar">
+          <PhoneFrame src={screenshots[i]} alt={item.alt} width={240} />
+          <h3 class="title">{item.title}</h3>
+          <p class="body">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pillars { padding-block: var(--space-2xl); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  .pillar {
+    text-align: center;
+    display: grid;
+    gap: var(--space-md);
+    justify-items: center;
+  }
+
+  .title {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: var(--font-title);
+    color: var(--text-primary);
+    margin: var(--space-md) 0 0;
+  }
+
+  .body {
+    font-size: var(--font-body);
+    color: var(--text-secondary);
+    max-width: 32ch;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  }
+</style>
