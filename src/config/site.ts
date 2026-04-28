@@ -1,5 +1,5 @@
 export const SITE_NAME = 'Bond';
-export const SITE_URL = 'https://nimrod-bar.github.io/bond-app';
+export const SITE_URL = 'https://nimomix.github.io/bond-app';
 export const SITE_BASE = '/bond-app';
 export const COPYRIGHT_YEAR = 2026;
 

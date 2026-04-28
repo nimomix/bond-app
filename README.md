@@ -2,7 +2,7 @@
 
 The public marketing site for the Bond app.
 
-**Live:** https://nimrod-bar.github.io/bond-app/
+**Live:** https://nimomix.github.io/bond-app/
 
 ## Stack
 
