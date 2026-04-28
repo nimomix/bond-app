@@ -1,0 +1,89 @@
+---
+import { SITE_BASE, type Locale } from '../config/site';
+import { getStrings } from '../i18n/t';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = getStrings(locale);
+const homeHref = `${SITE_BASE}/${locale}/`;
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href={homeHref} class="wordmark" aria-label={t.site.name}>{t.site.name}</a>
+
+    <div class="right">
+      <LanguageSwitcher locale={locale} pathname={pathname} />
+      <a href="#coming-soon" class="cta">{t.nav.comingSoon}</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg), transparent 20%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .nav.scrolled {
+    border-bottom-color: rgba(212, 165, 116, 0.18);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+
+  .wordmark {
+    font-family: var(--font-script);
+    color: var(--gold);
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  .right {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .cta {
+    font-size: var(--font-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-primary);
+    background: rgba(212, 165, 116, 0.08);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 999px;
+    padding: 8px 16px;
+  }
+
+  .cta:hover {
+    background: rgba(212, 165, 116, 0.14);
+    color: var(--gold);
+  }
+</style>
+
+<script>
+  // Tiny scroll-state toggle for the nav border
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 4);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
