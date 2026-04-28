@@ -1,0 +1,41 @@
+---
+import { ENABLE_HEBREW_SWITCHER, SITE_BASE, type Locale } from '../config/site';
+import { getStrings } from '../i18n/t';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const t = getStrings(locale);
+
+const enHref = `${SITE_BASE}/en${pathname}`;
+const heHref = `${SITE_BASE}/he${pathname}`;
+---
+
+{ENABLE_HEBREW_SWITCHER && (
+  <nav class="lang" aria-label={t.languageSwitcher.switchTo}>
+    <a href={enHref} aria-current={locale === 'en' ? 'page' : undefined}>{t.languageSwitcher.en}</a>
+    <span aria-hidden="true">·</span>
+    <a href={heHref} aria-current={locale === 'he' ? 'page' : undefined}>{t.languageSwitcher.he}</a>
+  </nav>
+)}
+
+<style>
+  .lang {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-caption);
+    color: var(--text-muted);
+  }
+  .lang a {
+    color: var(--text-secondary);
+    padding: 4px 6px;
+    border-radius: var(--corner-sm);
+  }
+  .lang a[aria-current="page"] {
+    color: var(--gold);
+  }
+</style>
