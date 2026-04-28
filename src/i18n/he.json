@@ -1,0 +1,62 @@
+{
+  "site": {
+    "name": "Bond",
+    "tagline": "המילה שלך. הבונד שלך.",
+    "description": "TBD"
+  },
+  "nav": {
+    "comingSoon": "TBD"
+  },
+  "hero": {
+    "wordmark": "Bond",
+    "tagline": "המילה שלך. הבונד שלך.",
+    "subhead": "TBD",
+    "downloadHint": "TBD"
+  },
+  "whatIsABond": {
+    "eyebrow": "TBD",
+    "headline": "TBD",
+    "body": ["TBD", "TBD"],
+    "exampleBond": {
+      "type": "מהיר",
+      "title": "TBD",
+      "createdAgo": "TBD",
+      "statusSteps": ["TBD", "TBD", "TBD", "TBD"],
+      "contentHeader": "TBD",
+      "providesLabel": "TBD",
+      "dueLabel": "TBD",
+      "partyA": { "name": "TBD", "role": "TBD", "providing": "TBD" },
+      "partyB": { "name": "TBD", "role": "TBD", "providing": "TBD" },
+      "due": "TBD",
+      "signedLabel": "TBD",
+      "partiesHeader": "TBD"
+    }
+  },
+  "pillars": {
+    "items": [
+      { "title": "הסכמים בפשטות", "body": "TBD", "alt": "TBD" },
+      { "title": "מאובטח ופרטי", "body": "TBD", "alt": "TBD" },
+      { "title": "סנכרון מלא", "body": "TBD", "alt": "TBD" }
+    ]
+  },
+  "refrain": { "headline": "TBD", "steps": ["TBD", "TBD", "TBD", "TBD"] },
+  "builtFor": { "eyebrow": "TBD", "headline": "TBD", "body": "TBD" },
+  "comingSoon": {
+    "eyebrow": "TBD",
+    "headline": "TBD",
+    "subhead": "TBD",
+    "appStore": "TBD",
+    "googlePlay": "TBD",
+    "comingSoonLabel": "TBD",
+    "notify": "TBD",
+    "notifyLink": "TBD"
+  },
+  "hero_image_alt": "TBD",
+  "footer": { "privacy": "פרטיות", "terms": "תנאים", "copyright": "© 2026 Bond" },
+  "languageSwitcher": { "en": "EN", "he": "עב", "switchTo": "החלף שפה" },
+  "legal": {
+    "draftBanner": "TBD",
+    "privacy": { "title": "TBD", "body": "TBD" },
+    "terms": { "title": "TBD", "body": "TBD" }
+  }
+}

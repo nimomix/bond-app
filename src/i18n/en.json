@@ -1,0 +1,98 @@
+{
+  "site": {
+    "name": "Bond",
+    "tagline": "Your word. Your Bond.",
+    "description": "The agreement app for the people who matter most. Make a promise, track it, honor it — all in one place."
+  },
+  "nav": {
+    "comingSoon": "Coming soon"
+  },
+  "hero": {
+    "wordmark": "Bond",
+    "tagline": "Your word. Your Bond.",
+    "subhead": "The agreement app for the people who matter most. Make a promise, track it, honor it — all in one place.",
+    "downloadHint": "Coming soon to iPhone and Android."
+  },
+  "whatIsABond": {
+    "eyebrow": "What is a Bond",
+    "headline": "A simple agreement, beautifully tracked.",
+    "body": [
+      "Bond turns informal promises and formal agreements into structured, trackable, digitally signed records — without paperwork or awkward messages.",
+      "Quick Bonds are casual and fun (\"You owe me dinner\"). Formal Bonds are serious and structured (a rental, a loan, a freelance contract). Both look polished. Both are tracked end to end."
+    ],
+    "exampleBond": {
+      "type": "Quick",
+      "title": "Dinner Bond",
+      "createdAgo": "9 sec ago",
+      "statusSteps": ["Created", "Sent", "Active", "Completed"],
+      "contentHeader": "Content",
+      "providesLabel": "provides",
+      "dueLabel": "Due",
+      "partyA": { "name": "David Cohen", "role": "Creator", "providing": "Dinner at the new pasta place" },
+      "partyB": { "name": "Nimrod", "role": "Counterparty", "providing": "Pays next time" },
+      "due": "14 May 2026",
+      "signedLabel": "Signed",
+      "partiesHeader": "Parties"
+    }
+  },
+  "pillars": {
+    "items": [
+      {
+        "title": "Agreements made simple",
+        "body": "Create, share, and sign personal agreements with the people who matter most.",
+        "alt": "Bond app onboarding screen showing the cursive Bond signature mark and the headline 'Agreements made simple.'"
+      },
+      {
+        "title": "Secure & Private",
+        "body": "Every Bond is cryptographically signed, legally timestamped, and stored with bank-grade encryption.",
+        "alt": "Bond app onboarding screen with a shield icon and the headline 'Secure & Private.'"
+      },
+      {
+        "title": "Stay in Sync",
+        "body": "Track changes, receive instant notifications, and manage all your agreements in one place.",
+        "alt": "Bond app onboarding screen with a sync arrows icon and the headline 'Stay in Sync.'"
+      }
+    ]
+  },
+  "refrain": {
+    "headline": "Make a promise. Track it. Honor it.",
+    "steps": ["Create", "Sign", "Track", "Complete"]
+  },
+  "builtFor": {
+    "eyebrow": "Localized from day one",
+    "headline": "Built for Israel. Designed for the world.",
+    "body": "Bond launches in Hebrew and English with full right-to-left support, native currency formatting, and language preferences that travel with you. Other markets follow."
+  },
+  "comingSoon": {
+    "eyebrow": "Coming Soon",
+    "headline": "Make your first Bond.",
+    "subhead": "Coming soon to iPhone. Android shortly after.",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "comingSoonLabel": "Coming soon",
+    "notify": "Want to be notified at launch? ",
+    "notifyLink": "Email us."
+  },
+  "hero_image_alt": "Bond app showing a 'Dinner Bond' between Nimrod and David, with a 'Bond Signed' confirmation overlay.",
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "© 2026 Bond"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "he": "עב",
+    "switchTo": "Switch language"
+  },
+  "legal": {
+    "draftBanner": "Draft — pending legal review.",
+    "privacy": {
+      "title": "Privacy Policy",
+      "body": "This is placeholder privacy policy content. The final policy will be drafted with legal review before App Store submission."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "body": "This is placeholder terms of service content. The final terms will be drafted with legal review before App Store submission."
+    }
+  }
+}
