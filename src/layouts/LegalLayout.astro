@@ -1,0 +1,46 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { Locale } from '../config/site';
+import { getStrings } from '../i18n/t';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+  pageKey: 'privacy' | 'terms';
+}
+
+const { locale, pathname, pageKey } = Astro.props;
+const t = getStrings(locale);
+const page = pageKey === 'privacy' ? t.legal.privacy : t.legal.terms;
+---
+
+<BaseLayout locale={locale} pathname={pathname} title={page.title}>
+  <article class="legal container">
+    <p class="banner">{t.legal.draftBanner}</p>
+    <h1>{page.title}</h1>
+    <p>{page.body}</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-block: var(--space-2xl) var(--space-3xl);
+    max-width: 720px;
+  }
+  .banner {
+    background: rgba(199, 148, 71, 0.08);
+    border: 1px solid rgba(199, 148, 71, 0.3);
+    border-radius: var(--corner-md);
+    padding: var(--space-md);
+    color: var(--warning);
+    font-size: var(--font-caption);
+    margin-bottom: var(--space-xl);
+  }
+  h1 {
+    font-family: var(--font-sans);
+    font-weight: 200;
+    font-size: var(--font-display-3);
+    margin: 0 0 var(--space-lg);
+  }
+  p { color: var(--text-secondary); font-size: var(--font-headline); }
+</style>

@@ -1,17 +1,29 @@
 ---
-
+import { SITE_BASE } from '../config/site';
+const enHref = `${SITE_BASE}/en/`;
+const heHref = `${SITE_BASE}/he/`;
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Bond</title>
+    <link rel="canonical" href={enHref} />
+    <meta http-equiv="refresh" content={`0; url=${enHref}`} />
+    <script is:inline define:vars={{ enHref, heHref }}>
+      try {
+        const lang = (navigator.language || 'en').toLowerCase();
+        const target = lang.startsWith('he') ? heHref : enHref;
+        location.replace(target);
+      } catch {
+        location.replace(enHref);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting… <a href={enHref}>Continue to Bond</a>.</p>
+  </body>
 </html>
