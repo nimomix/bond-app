@@ -1,43 +1,29 @@
-# Astro Starter Kit: Minimal
+# Bond — Marketing Website
 
-```sh
-npm create astro@latest -- --template minimal
+The public marketing site for the Bond app.
+
+**Live:** https://nimrod-bar.github.io/bond-app/
+
+## Stack
+
+- [Astro](https://astro.build/) static site generator
+- TypeScript
+- Plain CSS with custom properties (design tokens ported from the iOS app)
+- [Lucide](https://lucide.dev/) for icons
+- Deployed to GitHub Pages via GitHub Actions
+
+## Local dev
+
+```bash
+npm install
+npm run dev      # http://localhost:4321/bond-app/
+npm run build    # outputs dist/
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Localization
 
-## 🚀 Project Structure
+The site supports English (`/en/`) and Hebrew (`/he/`). The Hebrew translation is partial in v1; the language switcher is gated behind `ENABLE_HEBREW_SWITCHER` in `src/config/site.ts` until full translation lands.
 
-Inside of your Astro project, you'll see the following folders and files:
+## License
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+© 2026 Bond.
