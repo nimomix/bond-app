@@ -1,0 +1,63 @@
+---
+import type { Locale } from '../../config/site';
+import { getStrings } from '../../i18n/t';
+import BondCard from '../BondCard.astro';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = getStrings(locale);
+---
+
+<section class="what" aria-labelledby="what-headline">
+  <div class="container what-grid">
+    <div class="what-text">
+      <p class="eyebrow">{t.whatIsABond.eyebrow}</p>
+      <h2 id="what-headline" class="headline">{t.whatIsABond.headline}</h2>
+      {t.whatIsABond.body.map(p => <p class="body">{p}</p>)}
+    </div>
+    <div class="what-card">
+      <BondCard locale={locale} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .what {
+    padding-block: var(--space-3xl);
+  }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .eyebrow {
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin: 0 0 var(--space-md);
+  }
+
+  .headline {
+    font-family: var(--font-sans);
+    font-weight: 200;
+    font-size: var(--font-display-3);
+    line-height: 1.15;
+    margin: 0 0 var(--space-lg);
+    color: var(--text-primary);
+  }
+
+  .body {
+    font-size: var(--font-headline);
+    color: var(--text-secondary);
+    max-width: 50ch;
+    margin: 0 0 var(--space-md);
+  }
+
+  @media (max-width: 900px) {
+    .what-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+  }
+</style>
