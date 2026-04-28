@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import WhatIsABond from '../../components/sections/WhatIsABond.astro';
+import ThreePillars from '../../components/sections/ThreePillars.astro';
+import Refrain from '../../components/sections/Refrain.astro';
+import BuiltForIsrael from '../../components/sections/BuiltForIsrael.astro';
+import ComingSoon from '../../components/sections/ComingSoon.astro';
+
+const locale = 'he' as const;
+---
+
+<BaseLayout locale={locale} pathname="/">
+  <Hero locale={locale} />
+  <WhatIsABond locale={locale} />
+  <ThreePillars locale={locale} />
+  <Refrain locale={locale} />
+  <BuiltForIsrael locale={locale} />
+  <ComingSoon locale={locale} />
+</BaseLayout>
