@@ -26,6 +26,9 @@ const homeHref    = `${SITE_BASE}/${locale}/`;
     </nav>
     <div class="copyright">{t.footer.copyright}</div>
   </div>
+  <p class="made-by container">
+    {t.footer.madeByPrefix}<a href="https://nimomix.github.io/" target="_blank" rel="noopener noreferrer">{t.footer.author}</a>
+  </p>
 </footer>
 
 <style>
@@ -63,5 +66,21 @@ const homeHref    = `${SITE_BASE}/${locale}/`;
 
   .copyright {
     font-size: var(--font-caption);
+  }
+
+  .made-by {
+    margin: var(--space-xl) auto 0;
+    font-size: var(--font-micro);
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  .made-by a {
+    color: var(--text-secondary);
+  }
+
+  .made-by a:hover {
+    color: var(--gold);
   }
 </style>

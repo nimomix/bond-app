@@ -77,7 +77,9 @@
   "footer": {
     "privacy": "Privacy",
     "terms": "Terms",
-    "copyright": "© 2026 Bond"
+    "copyright": "© 2026 Bond",
+    "madeByPrefix": "Made with care by ",
+    "author": "Nimrod"
   },
   "languageSwitcher": {
     "en": "EN",
