@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import WhatIsABond from '../../components/sections/WhatIsABond.astro';
+import ThreePillars from '../../components/sections/ThreePillars.astro';
+import Refrain from '../../components/sections/Refrain.astro';
+import BuiltForIsrael from '../../components/sections/BuiltForIsrael.astro';
+import ComingSoon from '../../components/sections/ComingSoon.astro';
+import { SITE_URL } from '../../config/site';
+
+const locale = 'en' as const;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Bond",
+  "description": "The agreement app for the people who matter most.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "iOS, Android",
+  "url": `${SITE_URL}/en/`,
+  "image": `${SITE_URL}/brand/og-image.png`,
+  "offers": { "@type": "Offer", "availability": "https://schema.org/PreOrder", "price": "0" }
+};
+---
+
+<BaseLayout locale={locale} pathname="/">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  <Hero locale={locale} />
+  <WhatIsABond locale={locale} />
+  <ThreePillars locale={locale} />
+  <Refrain locale={locale} />
+  <BuiltForIsrael locale={locale} />
+  <ComingSoon locale={locale} />
+</BaseLayout>
