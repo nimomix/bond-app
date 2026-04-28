@@ -7,18 +7,18 @@ const { locale } = Astro.props;
 const t = getStrings(locale);
 ---
 
-<section class="biw" aria-labelledby="biw-headline">
-  <div class="container biw-inner">
-    <p class="eyebrow">{t.builtFor.eyebrow}</p>
-    <h2 id="biw-headline" class="headline">{t.builtFor.headline}</h2>
-    <p class="body">{t.builtFor.body}</p>
+<section class="aiop" aria-labelledby="aiop-headline">
+  <div class="container aiop-inner">
+    <p class="eyebrow">{t.allInOnePlace.eyebrow}</p>
+    <h2 id="aiop-headline" class="headline">{t.allInOnePlace.headline}</h2>
+    <p class="body">{t.allInOnePlace.body}</p>
   </div>
 </section>
 
 <style>
-  .biw { padding-block: var(--space-2xl); text-align: center; }
+  .aiop { padding-block: var(--space-2xl); text-align: center; }
 
-  .biw-inner {
+  .aiop-inner {
     max-width: 780px;
     display: grid;
     gap: var(--space-md);
