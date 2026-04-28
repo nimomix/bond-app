@@ -1,0 +1,58 @@
+:root {
+  /* Color — ported from Bond app Color+Bond.swift */
+  --bg:             #0c0a09;
+  --surface:        #1c1917;
+  --border:         #292524;
+
+  --text-primary:   #e7e5e4;
+  --text-secondary: #78716c;
+  --text-muted:     #57534e;
+
+  --gold:           #d4a574;
+  --gold-deep:      #b8860b;
+
+  --positive:       #499866;
+  --negative:       #b15c54;
+  --warning:        #c79447;
+
+  --type-legal:     #6366f1;
+  --type-money:     #d4a574;
+  --type-service:   #14b8a6;
+
+  /* Spacing — Theme.Spacing parity */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 64px;
+  --space-3xl: 128px;
+
+  /* Radius */
+  --corner-sm: 8px;
+  --corner-md: 12px;
+  --corner-card: 16px;
+
+  /* Type scale (in px, matches Theme.Typography) */
+  --font-largetitle: 42px;
+  --font-title:      24px;
+  --font-headline:   15px;
+  --font-body:       14px;
+  --font-caption:    12px;
+  --font-label:      11px;
+  --font-micro:      10px;
+
+  /* Web display sizes for marketing-only headlines */
+  --font-display-1:  clamp(48px, 7vw, 96px);
+  --font-display-2:  clamp(32px, 4vw, 56px);
+  --font-display-3:  clamp(24px, 3vw, 36px);
+
+  /* Layout */
+  --max-content: 1200px;
+  --gutter:      24px;
+
+  /* Type families */
+  --font-sans:   -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --font-serif:  "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-script: "FeasiblySingleLine", "Brush Script MT", cursive;
+}
