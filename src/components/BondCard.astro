@@ -1,0 +1,223 @@
+---
+import type { Locale } from '../config/site';
+import { getStrings } from '../i18n/t';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getStrings(locale);
+const ex = t.whatIsABond.exampleBond;
+---
+
+<article class="bond" aria-label={ex.title}>
+  <header class="bond-header">
+    <span class="type-tag">{ex.type}</span>
+    <span class="meta">{ex.createdAgo}</span>
+  </header>
+
+  <h3 class="bond-title">{ex.title}</h3>
+
+  <ol class="status">
+    {ex.statusSteps.map((step, i) => (
+      <li class:list={["step", { active: i <= 1 }]}>
+        <span class="dot" aria-hidden="true"></span>
+        <span class="label">{step}</span>
+      </li>
+    ))}
+  </ol>
+
+  <section class="block">
+    <div class="block-header">{ex.contentHeader}</div>
+    <dl class="terms">
+      <div class="term">
+        <dt>{ex.partyA.name} {ex.providesLabel}</dt>
+        <dd>{ex.partyA.providing}</dd>
+      </div>
+      <div class="term">
+        <dt>{ex.partyB.name} {ex.providesLabel}</dt>
+        <dd>{ex.partyB.providing}</dd>
+      </div>
+      <div class="term">
+        <dt>{ex.dueLabel}</dt>
+        <dd>{ex.due}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="block">
+    <div class="block-header">{ex.partiesHeader}</div>
+    <ul class="parties">
+      <li>
+        <span class="party-name">{ex.partyA.name}</span>
+        <span class="role">{ex.partyA.role}</span>
+        <span class="signed">{ex.signedLabel}</span>
+      </li>
+      <li>
+        <span class="party-name">{ex.partyB.name}</span>
+        <span class="role">{ex.partyB.role}</span>
+        <span class="signed">{ex.signedLabel} ✓</span>
+      </li>
+    </ul>
+  </section>
+</article>
+
+<style>
+  .bond {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-card);
+    border-inline-start: 3px solid var(--gold);
+    padding: var(--space-xl);
+    color: var(--text-primary);
+    max-width: 520px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .bond-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .type-tag {
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    background: rgba(212, 165, 116, 0.08);
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    border-radius: var(--corner-sm);
+    padding: 4px 10px;
+  }
+
+  .meta {
+    font-size: var(--font-caption);
+    color: var(--text-muted);
+  }
+
+  .bond-title {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: var(--font-title);
+    margin: 0 0 var(--space-lg);
+    color: var(--text-primary);
+  }
+
+  .status {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xs);
+    position: relative;
+  }
+
+  .status::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6%;
+    right: 6%;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step .dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    margin: 0 auto var(--space-sm);
+  }
+
+  .step.active .dot {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .step .label {
+    font-size: var(--font-micro);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .step.active .label {
+    color: var(--text-secondary);
+  }
+
+  .block {
+    margin-bottom: var(--space-lg);
+  }
+
+  .block-header {
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .terms {
+    margin: 0;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .term {
+    display: grid;
+    grid-template-columns: minmax(140px, 40%) 1fr;
+    gap: var(--space-md);
+    font-size: var(--font-body);
+    padding-block: var(--space-xs);
+    border-bottom: 1px solid color-mix(in oklab, var(--border), transparent 50%);
+  }
+
+  .term:last-child { border-bottom: 0; }
+  .term dt { color: var(--text-secondary); margin: 0; }
+  .term dd { color: var(--text-primary); margin: 0; }
+
+  .parties {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .parties li {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: var(--space-md);
+    align-items: center;
+    font-size: var(--font-body);
+  }
+
+  .party-name { color: var(--text-primary); }
+  .role {
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    background: rgba(212, 165, 116, 0.06);
+    border-radius: var(--corner-sm);
+    padding: 3px 8px;
+  }
+  .signed {
+    font-size: var(--font-caption);
+    color: var(--positive);
+  }
+</style>
