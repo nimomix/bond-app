@@ -1,0 +1,76 @@
+---
+import type { Locale } from '../config/site';
+import { getStrings } from '../i18n/t';
+import { Apple, Smartphone } from 'lucide-astro';
+
+interface Props {
+  locale: Locale;
+  align?: 'start' | 'center';
+}
+
+const { locale, align = 'start' } = Astro.props;
+const t = getStrings(locale);
+---
+
+<div class:list={["downloads", `align-${align}`]}>
+  <button type="button" class="download" aria-disabled="true" data-comingsoon>
+    <Apple aria-hidden="true" size={28} />
+    <span class="content">
+      <span class="hint">{t.comingSoon.comingSoonLabel}</span>
+      <span class="store">{t.comingSoon.appStore}</span>
+    </span>
+  </button>
+  <button type="button" class="download" aria-disabled="true" data-comingsoon>
+    <Smartphone aria-hidden="true" size={28} />
+    <span class="content">
+      <span class="hint">{t.comingSoon.comingSoonLabel}</span>
+      <span class="store">{t.comingSoon.googlePlay}</span>
+    </span>
+  </button>
+</div>
+
+<style>
+  .downloads {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+  .align-center { justify-content: center; }
+  .align-start  { justify-content: flex-start; }
+
+  .download {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 10px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    color: var(--text-primary);
+    cursor: not-allowed;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .download:hover {
+    border-color: rgba(212, 165, 116, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .content {
+    display: grid;
+    line-height: 1.1;
+    text-align: start;
+  }
+
+  .hint {
+    font-size: var(--font-micro);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+
+  .store {
+    font-size: var(--font-headline);
+    font-weight: 500;
+  }
+</style>
